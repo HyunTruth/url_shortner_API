@@ -10,6 +10,10 @@ router.get('/:id', (req, res) => {
   url.get(req, res)
 })
 
+router.get('/:id/stats', (req, res) => {
+  stats.get(req, res)
+})
+
 router.post('/register', (req, res) => {
   register.post(req, res)
 })

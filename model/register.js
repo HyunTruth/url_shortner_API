@@ -23,8 +23,6 @@ module.exports = {
         })
       }
     })
-    .catch((err) => {
-      Promise.reject(err);
-    })
+    .catch((err) => (Promise.reject(err)))
   }
 };
