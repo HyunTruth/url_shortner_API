@@ -11,9 +11,6 @@ module.exports = {
     }
     return register.post(req)
     .then((result) => {
-      console.log('this',result.status);
-      // res.json(result);
-      // res.send('hi')
       res.status(result.status).send(result.linkInfo);
     })
     .catch((err) => {

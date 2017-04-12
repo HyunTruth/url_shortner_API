@@ -3,12 +3,10 @@ const Urls = require('../functions/urls');
 module.exports = {
   post(req) {
     destination = req.query.url;
-    console.log(destination);
     return Urls.checkExistence(destination)
     .then((exists) => {
       const linkInfo = {}
-      if (exists.length) {
-        console.log(exists);
+      if (exists.url) {
         linkInfo.url = 'http://localhost:3000/'+ exists.id
         return {
           status: 200,
@@ -22,8 +20,11 @@ module.exports = {
             status: 201,
             linkInfo,
           }
-        });
+        })
       }
+    })
+    .catch((err) => {
+      Promise.reject(err);
     })
   }
 };

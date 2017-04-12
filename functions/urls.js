@@ -23,5 +23,4 @@ module.exports = {
     .then(result => (result.toJSON()))
     .catch(err => (Promise.reject(err)));
   },
-
 };

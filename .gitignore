@@ -37,4 +37,4 @@ jspm_packages
 .node_repl_history
 
 # Sensitive infos
-keys
+keys.js
