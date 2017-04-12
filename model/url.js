@@ -5,7 +5,7 @@ module.exports = {
     id = req.params.id
     return Urls.incrementVisits(id)
     .then((incrementResult) => {
-      return Urls.fetchURL(id)
+      return Urls.fetchURL(id);
     })
     .catch(err => (Promise.reject(err)));
   }

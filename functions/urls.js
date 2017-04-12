@@ -53,9 +53,9 @@ module.exports = {
           visits: 0
         })
         .save()
-        .then(result => (result.toJSON()))
+        .then(result => (result.toJSON()));
       }
-      return Promise.reject('Number of records exceed the limit!')
+      return Promise.reject('Number of records exceed the limit!');
     })
     .catch(err => (Promise.reject(err)));
   },
