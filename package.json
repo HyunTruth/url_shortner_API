@@ -14,5 +14,8 @@
     "knex": "^0.12.9",
     "morgan": "~1.8.1",
     "mysql": "^2.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

@@ -11,7 +11,10 @@ module.exports = {
     }
     return register.post(req)
     .then((result) => {
-        res.json(result);
+      console.log('this',result.status);
+      // res.json(result);
+      // res.send('hi')
+      res.status(result.status).send(result.linkInfo);
     })
     .catch((err) => {
       res.status(400).send(err);
