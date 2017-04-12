@@ -45,12 +45,31 @@ module.exports = {
     },
 
   addNewUrls(url) {
-    return new Urls({
-      url,
-      visits: 0
+    return module.exports.checkRecordNumber()
+    .then((rowNums) => {
+      if(rowNums <= 10000) {
+        return new Urls({
+          url,
+          visits: 0
+        })
+        .save()
+        .then(result => (result.toJSON()))
+      }
+      return Promise.reject('Number of records exceed the limit!')
     })
-    .save()
-    .then(result => (result.toJSON()))
     .catch(err => (Promise.reject(err)));
+  },
+
+  checkRecordNumber(){
+    return Urls
+    .query()
+    .count()
+    .then((result) => {
+      if(result) {
+        return result[0]['count(*)'];
+      } else {
+        return 0;
+      }
+    })
   },
 };
