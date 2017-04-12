@@ -5,6 +5,7 @@ module.exports = {
   (req, res) => {
     const dataIncomplete = (
       !req.query.url
+      || req.query.url === ''
     );
     if (dataIncomplete) {
       res.status(400).send('post data incomplete');
